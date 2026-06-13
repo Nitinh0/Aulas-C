@@ -12,7 +12,8 @@ int main() {
 			printf("Alerta: Projeto de Alto Custo!\n");
 		}
 		else {
-			printf("Projeto dentro do orçamento base.\n");
+			printf("Projeto dentro do orÃ§amento base.\n");
 		}
 	}
+	return 0;
 }
