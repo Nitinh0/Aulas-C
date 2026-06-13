@@ -12,9 +12,12 @@ void verificarOrcamento(double custo) {
 
 int main() {
 	double custos[3];
-	scanf("Insira o custo do projeto 1: %lf\n", &custos[0]);
-	scanf("Insira o custo do projeto 2: %lf\n", &custos[1]);
-	scanf("Insira o custo do projeto 3: %lf\n", &custos[2]);
+	printf("Insira o custo do projeto 1: \n");
+	scanf("%lf", &custos[0]);
+	printf("Insira o custo do projeto 2: \n");
+	scanf("%lf", &custos[1]);
+	printf("Insira o custo do projeto 3: \n");
+	scanf("%lf", &custos[2]);
 
 	verificarOrcamento(custos[0]);
 	verificarOrcamento(custos[1]);
