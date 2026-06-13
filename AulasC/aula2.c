@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS // Adiciona isto na LINHA 1 para calar os avisos do VS
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main() {
