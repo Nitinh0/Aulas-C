@@ -5,20 +5,20 @@ int main() {
     int ano;
     double custo;
 
-    printf("Digita o ano de lançamento previsto do projeto: ");
+    printf("Digita o ano de lanÃ§amento previsto do projeto: ");
     scanf("%d", &ano); // Corrigido (tudo junto)
 
-    printf("Digita o custo estimado de produção: ");
-    scanf("%lf", &custo); // Corrigido o espaço que dava erro fatal!
+    printf("Digita o custo estimado de produÃ§Ã£o: ");
+    scanf("%lf", &custo); // Corrigido o espaÃ§o que dava erro fatal!
 
     if (custo > 5000.0) {
         printf("Alerta: Projeto de Alto Custo!\n");
     }
     else {
-        printf("Projeto dentro do orçamento base.\n");
+        printf("Projeto dentro do orÃ§amento base.\n");
     }
 
-    printf("Ano de lançamento: %d\n", ano);
+    printf("Ano de lanÃ§amento: %d\n", ano);
 
     return 0;
 }

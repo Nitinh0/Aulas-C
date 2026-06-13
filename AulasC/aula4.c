@@ -6,9 +6,10 @@ void verificarOrcamento(double custo) {
 		printf("Alerta: Projeto de Alto Custo!\n");
 	}
 	else {
-		printf("Projeto dentro do orçamento base.\n");
+		printf("Projeto dentro do orÃ§amento base.\n");
 	}
 }
+
 int main() {
 	double custo = -0.1;
 
@@ -20,4 +21,5 @@ int main() {
 			verificarOrcamento(custo);
 		}
 	}
+	return 0;
 }
