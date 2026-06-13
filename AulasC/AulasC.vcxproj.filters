@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="aula2.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="aula3.c">
       <Filter>Source Files</Filter>
     </ClCompile>
