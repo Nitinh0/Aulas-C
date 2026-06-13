@@ -1,18 +1,24 @@
+#define _CRT_SECURE_NO_WARNINGS // Adiciona isto na LINHA 1 para calar os avisos do VS
 #include <stdio.h>
 
 int main() {
-	int ano;
-	double custo;
+    int ano;
+    double custo;
 
-	printf("Digite o ano previsto para o projeto e o custo estimado \n");
-	scanf("%d", &ano);
-	scanf("% .2f", &custo);
+    printf("Digita o ano de lançamento previsto do projeto: ");
+    scanf("%d", &ano); // Corrigido (tudo junto)
 
-	if (custo > 5000.0) {
-		printf("Alerta: Projeto de Alto Custo!\n");
-	}
-	else {
-		printf("Projeto dentro do orçamento base.\n");
-	}
-	return 0;
+    printf("Digita o custo estimado de produção: ");
+    scanf("%lf", &custo); // Corrigido o espaço que dava erro fatal!
+
+    if (custo > 5000.0) {
+        printf("Alerta: Projeto de Alto Custo!\n");
+    }
+    else {
+        printf("Projeto dentro do orçamento base.\n");
+    }
+
+    printf("Ano de lançamento: %d\n", ano);
+
+    return 0;
 }
