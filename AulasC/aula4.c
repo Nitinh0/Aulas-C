@@ -9,6 +9,7 @@ void verificarOrcamento(double custo) {
 		printf("Projeto dentro do orçamento base.\n");
 	}
 }
+
 int main() {
 	double custo = -0.1;
 
