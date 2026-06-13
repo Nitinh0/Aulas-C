@@ -22,4 +22,5 @@ int main() {
 	verificarOrcamento(custos[0]);
 	verificarOrcamento(custos[1]);
 	verificarOrcamento(custos[2]);
+	return 0;
 }
