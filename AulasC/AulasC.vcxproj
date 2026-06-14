@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="aula12.c" />
+    <ClCompile Include="aula13.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Launcher.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
