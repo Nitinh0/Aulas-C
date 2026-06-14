@@ -1,2 +1,6 @@
-Programa: ggg
-Caminho: hgf
+Stremio
+C:\Programas\Stremio
+Steam
+C:\Programas\Steam
+iptv
+C:\Programas\iptv
