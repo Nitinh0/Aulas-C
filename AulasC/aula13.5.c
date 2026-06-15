@@ -103,7 +103,7 @@ int main() {
                 printf("Dados de armazem gravados com sucesso.\n");
             }
             else {
-                printf("Nenhum dado para gravar. Saindo sem salvar.\n");
+                printf("Nenhum dado para gravar. Saindo sem salvar\n");
             }
         }
         else {
