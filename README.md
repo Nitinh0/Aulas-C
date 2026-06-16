@@ -52,6 +52,7 @@ if (quantidade <= 5) {
 
    - while: Ideal para quando o código deve rodar até que uma condição mude (ex: menus).
 
+```c
     // Exemplo de menu interativo retentivo
     int opcao = -1;
     while (opcao != 0) {
@@ -59,3 +60,4 @@ if (quantidade <= 5) {
         scanf("%d", &opcao);
         getchar(); // CRÍTICO: Limpa o 'Enter' (\n) que fica esquecido no buffer do teclado
     }
+```
