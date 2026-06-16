@@ -70,7 +70,7 @@ for (size_t i = 0; i < 3; i++) {
 </details>
 
 ### 📕 VOLUME 3: Domínio do Texto e Arquitetura (Aulas 7 a 9)
-<details>>
+<details>
 <summary><b>Onde a programação se cruza com o mundo real (nomes de aplicações, caminhos de pastas e menus interativos).</b></summary>
 
 ### 7. Strings (O Texto em C)
