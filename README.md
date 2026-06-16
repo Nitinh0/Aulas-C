@@ -46,3 +46,25 @@ if (quantidade <= 5) {
 }
 ```
 </details>
+
+
+### 📙 VOLUME 2: Escala e Automação (Aulas 5 a 6)
+<details>
+
+<summary><b>Este volume marca a transição de escrever linhas repetidas para ensinar o computador a trabalhar por ti.</b></summary>
+
+### 5. Arrays (Listas de Variáveis)
+Em vez de criar custo1, custo2 e custo3, cria-se um contentor com várias posições.
+-   **double custos[3];** -- Cria espaço para 3 números.
+    > **Atenção:** Em C, as posições começam sempre no zero! (Ou seja: custos[0], custos[1], custos[2]).
+
+### 6. O Ciclo for
+
+A melhor ferramenta para percorrer Arrays. Tem 3 regras: Início, Fim e Incremento.  
+```c
+for (size_t i = 0; i < 3; i++) {  
+	printf("Posicao %d\n", i);  
+}
+```
+> **Nota Profissional:** Usar size_t em vez de int para a variável i protege o teu código, impedindo que o ciclo tente ler posições negativas de memória por acidente.
+</details>
