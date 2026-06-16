@@ -57,7 +57,7 @@ Servem para que o programa faça escolhas com base em condições lógicas, como
 Usam operadores de comparação:
    - == : Igual a
    - != : Diferente de
-   - > ou >=  : Maior que / Maoir ou igual a
+   - ">" ou >=  : Maior que / Maoir ou igual a
    - < ou <= : Menor que / Menor ou igual a
 
 ```c
