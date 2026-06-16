@@ -68,3 +68,32 @@ for (size_t i = 0; i < 3; i++) {
 ```
 > **Nota Profissional:** Usar size_t em vez de int para a variável i protege o teu código, impedindo que o ciclo tente ler posições negativas de memória por acidente.
 </details>
+
+### 📕 VOLUME 3: Domínio do Texto e Arquitetura (Aulas 7 a 9)
+<details>>
+<summary><b>Onde a programação se cruza com o mundo real (nomes de aplicações, caminhos de pastas e menus interativos).</b></summary>
+
+### 7. Strings (O Texto em C)
+Em C, as palavras não são mais do que Arrays de letras (caracteres).
+- **char nome[50];** -- Cria espaço para uma palavra até 49 letras (+1 terminador invisível \0).
+- A Exceção do &: No scanf para ler texto (com o marcador %s), não se usa o &. **O próprio nome do array já representa a sua memória**.
+- 
+### 8. Textos com Espaços e o fgets
+O scanf tradicional não consegue ler frases com espaços (ex: "Program Files"). A alternativa profissional é o **fgets**.
+
+-   Sintaxe: **fgets(nomePasta, 300, stdin);**    
+-   O Problema da Tesoura: O fgets guarda acidentalmente o "Enter" (\n) que digitas no teclado.    
+-   A Solução (**strcspn**): Importamos a **<string.h>** e ordenamos ao C que encontre a posição do **\n** e o substitua por **\0** (Fim do texto).
+```c
+nomePasta[strcspn(nomePasta, "\n")] = '\0';
+```
+
+### 9. Matrizes (Arrays 2D) e Choques de Memória
+-   Arrays de Texto: Para guardar uma lista de nomes, juntamos duas dimensões. Ex: **char listaApps[3][50];** (3 apps, até 50 letras cada). Para ler/gravar, usas apenas listaApps[i].
+    
+#### O Choque Mortal (scanf vs fgets):
+-   O que acontece: Se usares um **scanf** para ler um menu (ex: opção 1) e logo a seguir o código tentar ler um texto com **fgets**, o fgets vai encravar porque encontra o "Enter" fantasma deixado para trás pelo scanf.
+    
+- **A Cura:** Usar sempre a função **getchar();** imediatamente após um scanf para "limpar" o buffer do teclado antes de chamar um **fgets**.
+
+</details>
