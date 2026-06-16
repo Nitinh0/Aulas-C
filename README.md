@@ -1,4 +1,4 @@
-﻿# 📘 Manual de Programação em C: Da Introdução às Estruturas
+﻿# 📘 Manual de Programação em C:
 
 Este repositório contém os meus apontamentos de estudo e a evolução dos meus projetos em linguagem C.
 
@@ -23,7 +23,7 @@ int main() {
 ### 2. Variáveis e Tipos de Dados
 
 As variáveis são caixas na memória RAM com tipos estritos:
-```
+```c
     int: Números inteiros (ex: 10, -5). Usa %d no printf.
 
     float / double: Números decimais (ex: 10.5). Usa %f ou %lf.
@@ -35,7 +35,7 @@ As variáveis são caixas na memória RAM com tipos estritos:
 
 Servem para o programa tomar decisões baseadas em testes matemáticos:
 
-```
+```c
 if (quantidade <= 5) {
     printf("Stock Crítico!\n");
 } else {
