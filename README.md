@@ -23,13 +23,13 @@ int main() {
 ### 2. Variáveis e Tipos de Dados
 
 As variáveis são caixas na memória RAM com tipos estritos:
-```c
-    int: Números inteiros (ex: 10, -5). Usa %d no printf.
 
-    float / double: Números decimais (ex: 10.5). Usa %f ou %lf.
+   - int: Números inteiros (ex: 10, -5). Usa %d no printf.
 
-    char: Um único caractere (ex: 'A'). Usa %c.
-```
+   - float / double: Números decimais (ex: 10.5). Usa %f ou %lf.
+
+   - char: Um único caractere (ex: 'A'). Usa %c.
+
 
 ### Operadores Lógicos e Condições (if / else)
 
@@ -42,3 +42,20 @@ if (quantidade <= 5) {
     printf("Stock Normal.\n");
 }
 ```
+
+
+### MÓDULO 2: Loops e Menus Interativos (Aulas 6 a 9)
+
+### 1. Ciclos de Repetição
+
+   - for: Ideal para quando sabemos exatamente quantas vezes o código deve rodar. Usa-se frequentemente com size_t para índices.
+
+   - while: Ideal para quando o código deve rodar até que uma condição mude (ex: menus).
+
+    // Exemplo de menu interativo retentivo
+    int opcao = -1;
+    while (opcao != 0) {
+        printf("1. Continuar\n0. Sair\n");
+        scanf("%d", &opcao);
+        getchar(); // CRÍTICO: Limpa o 'Enter' (\n) que fica esquecido no buffer do teclado
+    }
