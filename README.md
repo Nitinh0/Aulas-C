@@ -77,7 +77,7 @@ for (size_t i = 0; i < 3; i++) {
 Em C, as palavras não são mais do que Arrays de letras (caracteres).
 - **char nome[50];** -- Cria espaço para uma palavra até 49 letras (+1 terminador invisível \0).
 - A Exceção do &: No scanf para ler texto (com o marcador %s), não se usa o &. **O próprio nome do array já representa a sua memória**.
-- 
+
 ### 8. Textos com Espaços e o fgets
 O scanf tradicional não consegue ler frases com espaços (ex: "Program Files"). A alternativa profissional é o **fgets**.
 
@@ -100,7 +100,7 @@ nomePasta[strcspn(nomePasta, "\n")] = '\0';
 
 
 
-## 📂 MÓDULO4: Persistência de Dados (Aulas 10 a 13)
+## 📂 Volume4: Persistência de Dados (Aulas 10 a 13)
 <details>
 
 <summary><b>O módulo onde o programa aprende a guardar e ler dados do disco rígido, criando uma memória permanente.</b></summary>
@@ -165,7 +165,7 @@ if (f == NULL) {
 
 </details>
 
-## 🧱 Modulo 5: O Mundo das Structs (Aulas 14 e 15)
+## 🧱 Volume 5: O Mundo das Structs (Aulas 14 e 15)
 <details>
 
 <summary><b>O módulo onde o programa evolui de um amontoado de variáveis para uma estrutura organizada e profissional.</b></summary>
