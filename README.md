@@ -102,6 +102,7 @@ nomePasta[strcspn(nomePasta, "\n")] = '\0';
 
 ## 📂 MÓDULO4: Persistência de Dados (Aulas 10 a 13)
 <details>
+
 <summary><b>O módulo onde o programa aprende a guardar e ler dados do disco rígido, criando uma memória permanente.</b></summary>
 
 ### 1. O Ponteiro de Ficheiro (FILE *)
@@ -166,6 +167,7 @@ if (f == NULL) {
 
 ## 🧱 Modulo 5: O Mundo das Structs (Aulas 14 e 15)
 <details>
+
 <summary><b>O módulo onde o programa evolui de um amontoado de variáveis para uma estrutura organizada e profissional.</b></summary>
 
 ### 1. O que é uma struct e porquê usá-la?
@@ -234,3 +236,4 @@ listaApps[i].nome[strcspn(listaApps[i].nome, "\n")] = '\0'; // Mantém-se a teso
 ```
 
 > Vantagem de Arquitetura: Se amanhã decidires que o teu Gestor HTPC também deve guardar a categoria da app ou um ícone personalizado, basta ires lá acima à struct App e adicionar a linha. Todo o teu código cá em baixo continuará perfeitamente alinhado.
+</details>
