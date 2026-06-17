@@ -163,3 +163,74 @@ if (f == NULL) {
 4.  Se o utilizador escolher gravar, o programa abre o ficheiro em modo "w", esvazia o disco, descarrega a RAM para lá e volta a fechar.
 
 </details>
+
+## 🧱 O Mundo das Structs (Aulas 14 e 15)
+<details>>
+<summary><b>O módulo onde o programa evolui de um amontoado de variáveis para uma estrutura organizada e profissional.</b></summary>
+
+### 1. O que é uma struct e porquê usá-la?
+
+Até agora, para gerir dados complexos, usávamos arrays paralelos (ex: um array para nomes e outro para caminhos). O problema é que o compilador não sabe que eles estão interligados.
+Uma struct permite-te criar o teu próprio tipo de variável. Ela serve como um "modelo" ou uma "ficha de inscrição" que agrupa variáveis de tipos diferentes (como char, int, double) debaixo do mesmo teto.
+
+### 2. Como se Define e Declara (Sintaxe)
+A definição do modelo é feita **fora da função main (lá em cima, junto aos #include)**, para que todo o programa conheça o novo formato:
+```c
+struct App {
+    char nome[50];
+    char caminho[300];
+    int vezesAberta;
+}; // <-- ATENÇÃO: Nunca esquecer este ponto e vírgula no final da definição!
+```
+
+Depois de definido o modelo, podes criar uma variável desse tipo dentro do main assim:
+```c
+struct App minhaApp; // Criámos uma variável que transporta os 3 dados lá dentro
+```
+
+
+### 3. O Operador Ponto (.)
+
+Para aceder, ler ou modificar qualquer propriedade dentro da tua struct, usas o operador ponto (**.**)
+
+Para Variáveis Normais (int, double): Mexes nelas diretamente usando o ponto.
+```c
+minhaApp.vezesAberta = 5;
+```
+
+Para Arrays de Texto (char[]): Se fores preencher manualmente no código, precisas da função strcpy da <string.h>. Mas se fores ler do teclado ou de um ficheiro, o fgets faz o trabalho diretamente:
+```c
+fgets(minhaApp.nome, 50, stdin); // Grava direto na propriedade da struct!
+```
+
+### 4. Arrays de Structs (Escala Profissional)
+
+O verdadeiro poder surge quando criamos um array de estruturas. Em vez de gerires matrizes paralelas complexas, geras uma lista simples de fichas:
+```c
+struct App listaApps[3]; // Uma lista com 3 posições, onde cada uma tem nome, caminho e contador.
+````
+
+Para navegar nisto dentro de um ciclo for, combinamos o índice do array [i] com o operador ponto (.):
+```c
+for (size_t i = 0; i < 3; i++) {
+    printf("Nome da App %d: %s\n", i + 1, listaApps[i].nome);
+}
+```
+
+
+### 5. Structs unidas a Ficheiros (Persistência Organizada)
+
+Quando guardamos ou lemos dados do disco rígido (armazem.txt ou Launcher.txt), a lógica de ponteiros (FILE *) mantém-se exatamente a mesma. A única diferença é que apontamos o fprintf ou o fgets para a propriedade exata da struct:
+
+Escrever no Disco:
+```c
+fprintf(f, "%s\n", listaApps[i].nome);
+```
+
+Ler do Disco:
+```c
+fgets(listaApps[i].nome, 50, f);
+listaApps[i].nome[strcspn(listaApps[i].nome, "\n")] = '\0'; // Mantém-se a tesoura!
+```
+
+> Vantagem de Arquitetura: Se amanhã decidires que o teu Gestor HTPC também deve guardar a categoria da app ou um ícone personalizado, basta ires lá acima à struct App e adicionar a linha. Todo o teu código cá em baixo continuará perfeitamente alinhado.
