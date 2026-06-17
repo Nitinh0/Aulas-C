@@ -1,5 +1,5 @@
 ﻿
-## 📘 VOLUME 1: Os Alicerces (Aulas 1 a 4)
+## 📘 MÓDULO 1: Os Alicerces (Aulas 1 a 4)
 <details>
 
 <summary><b>Este volume foca-se em como o programa nasce, como guarda dados simples e como toma as primeiras decisões.</b></summary>
@@ -48,7 +48,7 @@ if (quantidade <= 5) {
 </details>
 
 
-## 📙 VOLUME 2: Escala e Automação (Aulas 5 a 6)
+## 📙 MÓDULO 2: Escala e Automação (Aulas 5 a 6)
 <details>
 
 <summary><b>Este volume marca a transição de escrever linhas repetidas para ensinar o computador a trabalhar por ti.</b></summary>
@@ -69,7 +69,7 @@ for (size_t i = 0; i < 3; i++) {
 > **Nota Profissional:** Usar size_t em vez de int para a variável i protege o teu código, impedindo que o ciclo tente ler posições negativas de memória por acidente.
 </details>
 
-## 📕 VOLUME 3: Domínio do Texto e Arquitetura (Aulas 7 a 9)
+## 📕 MÓDULO 3: Domínio do Texto e Arquitetura (Aulas 7 a 9)
 <details>
 <summary><b>Onde a programação se cruza com o mundo real (nomes de aplicações, caminhos de pastas e menus interativos).</b></summary>
 
@@ -100,7 +100,7 @@ nomePasta[strcspn(nomePasta, "\n")] = '\0';
 
 
 
-## 📂 Volume 4: Persistência de Dados (Aulas 10 a 13)
+## 📂 MÓDULO 4: Persistência de Dados (Aulas 10 a 13)
 <details>
 
 <summary><b>O módulo onde o programa aprende a guardar e ler dados do disco rígido, criando uma memória permanente.</b></summary>
@@ -165,7 +165,7 @@ if (f == NULL) {
 
 </details>
 
-## 🧱 Volume 5: O Mundo das Structs (Aulas 14 e 15)
+## 🧱 MÓDULO 5: O Mundo das Structs (Aulas 14 e 15)
 <details>
 
 <summary><b>O módulo onde o programa evolui de um amontoado de variáveis para uma estrutura organizada e profissional.</b></summary>
@@ -236,4 +236,58 @@ listaApps[i].nome[strcspn(listaApps[i].nome, "\n")] = '\0'; // Mantém-se a teso
 ```
 
 > Vantagem de Arquitetura: Se amanhã decidires que o teu Gestor HTPC também deve guardar a categoria da app ou um ícone personalizado, basta ires lá acima à struct App e adicionar a linha. Todo o teu código cá em baixo continuará perfeitamente alinhado.
+
+
+</details>
+
+## 🧭 MÓDULO 6: Ponteiros e Memória Dinâmica (Aulas 16 a 18)
+<details>
+
+<summary><b>Onde o programa ganha acesso direto à RAM, quebrando barreiras entre funções e pedindo memória sob demanda.</b></summary>
+
+### 1. Ponteiros Básicos (& e *)
+O C protege as variáveis originais fazendo cópias delas quando as enviamos para funções. Para alterar a variável verdadeira, enviamos a sua morada (Ponteiro).
+
+- **O Operador & (Endereço):** Lê-se *"a morada de"*. Serve para descobrir onde a variável vive na RAM. Ex: `&idade`
+- **O Operador * (Desreferenciação):** Lê-se *"o conteúdo de"*. Serve para criar a variável ponteiro, e mais tarde para entrar nessa morada e alterar o valor.
+
+```c
+int numero = 10;
+int *ponteiro = &numero; // Guarda a morada
+*ponteiro = 20;          // Vai à morada e altera o valor original para 20
+```
+
+### 2. Ponteiros e Structs (A Setinha ->)
+
+Passar uma struct inteira para uma função consome muita RAM (cópia de dados). A solução é passar apenas o ponteiro da struct.
+Para aceder às propriedades da struct através de um ponteiro, o ponto (.) não funciona. Usamos o operador Setinha (->).
+```c
+void executarApp(struct App *alvo) {
+    alvo->vezesAberta++; // Viaja pela morada e soma 1 diretamente na struct original
+}
+```
+
+### 3. Memória Dinâmica (malloc e free)
+
+Quando não sabemos o tamanho de um array antes do programa arrancar (ex: o utilizador é que escolhe a quantidade), pedimos RAM emprestada ao Windows em tempo real usando a biblioteca <stdlib.h>.
+
+   **malloc** (Memory Allocation) -- Reserva o espaço na RAM e devolve o ponteiro inicial. Usamos o sizeof() para garantir o tamanho exato.
+
+   **free** -- Obrigatório no fim do programa. Devolve a RAM ao sistema operativo para evitar falhas de memória (Memory Leaks).
+
+```c
+int quantidade = 5;
+// 1. Criar o ponteiro
+struct Jogo *catalogo; 
+
+// 2. Pedir espaço exato para 5 videojogos
+catalogo = malloc(quantidade * sizeof(struct Jogo)); 
+
+// 3. Usar normalmente como um array
+strcpy(catalogo[0].nome, "Steam");
+
+// 4. Devolver a RAM no fim
+free(catalogo);
+```
+
 </details>
