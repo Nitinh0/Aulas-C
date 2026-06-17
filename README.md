@@ -1,5 +1,5 @@
 ﻿
-### 📘 VOLUME 1: Os Alicerces (Aulas 1 a 4)
+## 📘 VOLUME 1: Os Alicerces (Aulas 1 a 4)
 <details>
 
 <summary><b>Este volume foca-se em como o programa nasce, como guarda dados simples e como toma as primeiras decisões.</b></summary>
@@ -48,7 +48,7 @@ if (quantidade <= 5) {
 </details>
 
 
-### 📙 VOLUME 2: Escala e Automação (Aulas 5 a 6)
+## 📙 VOLUME 2: Escala e Automação (Aulas 5 a 6)
 <details>
 
 <summary><b>Este volume marca a transição de escrever linhas repetidas para ensinar o computador a trabalhar por ti.</b></summary>
@@ -69,7 +69,7 @@ for (size_t i = 0; i < 3; i++) {
 > **Nota Profissional:** Usar size_t em vez de int para a variável i protege o teu código, impedindo que o ciclo tente ler posições negativas de memória por acidente.
 </details>
 
-### 📕 VOLUME 3: Domínio do Texto e Arquitetura (Aulas 7 a 9)
+## 📕 VOLUME 3: Domínio do Texto e Arquitetura (Aulas 7 a 9)
 <details>
 <summary><b>Onde a programação se cruza com o mundo real (nomes de aplicações, caminhos de pastas e menus interativos).</b></summary>
 
