@@ -291,3 +291,25 @@ free(catalogo);
 ```
 
 </details>
+
+## 🏗️ MÓDULO 7: Arquitetura e Modularização (Aula 19)
+<details>
+
+<summary><b>Como dividir um projeto gigante em múltiplos ficheiros organizados, imitando a estrutura de software real.</b></summary>
+
+### 1. Ficheiros de Cabeçalho (.h) - O Contrato
+Servem apenas como um índice ou manual de instruções do módulo. Não contêm a lógica executável.
+- **Guardas de Cabeçalho:** Usamos `#ifndef`, `#define` e `#endif` para impedir que o compilador leia o mesmo ficheiro duas vezes (o que causaria erros de redefinição).
+- **O que contêm:** A definição das `structs` e as **assinaturas das funções** (apenas o nome, os parâmetros e um ponto e vírgula no fim).
+
+### 2. Ficheiros de Origem (.c) - O Trabalhador
+Ficheiros `.c` contêm a magia toda.
+- Devem sempre importar o seu próprio ficheiro de cabeçalho usando aspas duplas (ex: `#include "inventario.h"`). As aspas dizem ao C para procurar o ficheiro na nossa pasta local em vez de procurar no sistema operativo.
+- É aqui que abrimos as chavetas `{ }` e escrevemos o corpo real das funções.
+
+### 3. Ficheiro Principal (main.c) - O Centro de Comando
+O ficheiro que arranca o programa.
+- Para usar as ferramentas que criámos noutros ficheiros, basta fazer o `#include "inventario.h"`.
+- O `main` não precisa de saber como a função foi escrita internamente; ao incluir o `.h`, ele tem a garantia de que a função existe e chama-a de forma limpa. Isto mantém a função principal livre de "ruído" e fácil de ler.
+
+</details>
