@@ -302,14 +302,61 @@ Servem apenas como um índice ou manual de instruções do módulo. Não contêm
 - **Guardas de Cabeçalho:** Usamos `#ifndef`, `#define` e `#endif` para impedir que o compilador leia o mesmo ficheiro duas vezes (o que causaria erros de redefinição).
 - **O que contêm:** A definição das `structs` e as **assinaturas das funções** (apenas o nome, os parâmetros e um ponto e vírgula no fim).
 
+```c
+// AS GUARDAS DE CABEÇALHO: Protegem contra inclusões duplas (O VS Code e o compilador adoram isto)
+#ifndef HTPC_H
+#define HTPC_H
+
+// 1. Definir o modelo (A struct)
+struct App {
+    char nome[50];
+    int vezesAberta;
+};
+
+// 2. Definir a assinatura da função (Sem abrir chavetas! Só o "contrato")
+void executarApp(struct App *alvo);
+
+#endif
+```
+
 ### 2. Ficheiros de Origem (.c) - O Trabalhador
 Ficheiros `.c` contêm a magia toda.
 - Devem sempre importar o seu próprio ficheiro de cabeçalho usando aspas duplas (ex: `#include "inventario.h"`). As aspas dizem ao C para procurar o ficheiro na nossa pasta local em vez de procurar no sistema operativo.
 - É aqui que abrimos as chavetas `{ }` e escrevemos o corpo real das funções.
+
+```c
+#include <stdio.h>
+// IMPORTANTE: Incluir o nosso próprio ficheiro .h com aspas duplas em vez de <>
+#include "htpc.h" 
+
+// Escrever a função real
+void executarApp(struct App *alvo) {
+    alvo->vezesAberta++;
+    printf("Executando o app: %s \nTotal de vezes aberta: %d\n", alvo->nome, alvo->vezesAberta);
+}
+```
 
 ### 3. Ficheiro Principal (main.c) - O Centro de Comando
 O ficheiro que arranca o programa.
 - Para usar as ferramentas que criámos noutros ficheiros, basta fazer o `#include "inventario.h"`.
 - O `main` não precisa de saber como a função foi escrita internamente; ao incluir o `.h`, ele tem a garantia de que a função existe e chama-a de forma limpa. Isto mantém a função principal livre de "ruído" e fácil de ler.
 
+```c
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+// Incluir apenas o nosso "índice"
+#include "htpc.h" 
+
+int main() {
+    struct App jogo;
+    strcpy(jogo.nome, "GTA V");
+    jogo.vezesAberta = 0;
+
+    // O main não faz ideia de como a função está escrita no htpc.c, mas o htpc.h garante que ela existe!
+    executarApp(&jogo); 
+    
+    return 0;
+}
+```
 </details>
