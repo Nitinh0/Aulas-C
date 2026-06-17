@@ -97,3 +97,69 @@ nomePasta[strcspn(nomePasta, "\n")] = '\0';
 - **A Cura:** Usar sempre a função **getchar();** imediatamente após um scanf para "limpar" o buffer do teclado antes de chamar um **fgets**.
 
 </details>
+
+
+
+## 📂 MÓDULO4: Persistência de Dados (Aulas 10 a 13)
+<details>>
+<summary><b>O módulo onde o programa aprende a guardar e ler dados do disco rígido, criando uma memória permanente.</b></summary>
+
+### 1. O Ponteiro de Ficheiro (FILE *)
+
+-   Para comunicar com o disco rígido, o C usa um tipo de dados especial em maiúsculas acompanhado por um asterisco: **FILE *f;**. O asterisco indica que a variável guarda a "morada" do ficheiro no disco (um ponteiro).
+
+####  As Três Etapas Sagradas
+
+Manipular ficheiros em C **segue sempre uma ordem obrigatória**:
+
+1.  Abrir (**fopen**) -- Liga o programa ao ficheiro num determinado modo.
+
+	-   **"w"** (Write / Escrever): Cria o ficheiro do zero. Se já existir, apaga tudo o que lá estava.
+    
+	-   **"r"** (Read / Ler) -- Abre um ficheiro existente para extrair dados.
+    
+
+2.  Manipular (**fprintf** / **fgets**) -- Escreve ou lê os dados.
+    
+3.  Fechar (**fclose**) -- Fecha o canal. Obrigatório para evitar ficheiros corrompidos ou bloqueados pelo Windows.
+```c
+FILE *f = fopen("dados.txt", "w");
+fprintf(f, "Texto para o ficheiro\n");
+fclose(f);
+```
+
+####  A Rede de Segurança (NULL)
+
+-   Se tentares abrir um ficheiro para ler (**"r"**), mas o ficheiro não existir, o fopen falha e devolve o valor **NULL** (vazio).
+    
+-   Tentar ler ou fechar um ficheiro que vale **NULL** faz o programa crashar imediatamente.
+    
+-   **Boa Prática: Usar sempre um if de controlo logo após a abertura.**
+```c
+FILE *f = fopen("Launcher.txt", "r");  
+if (f == NULL) {  
+	printf("Aviso: Ficheiro nao encontrado!\n");  
+	// Aqui podes decidir se fechas o programa (return 1;) ou se geras um novo ("w")  
+} 
+```
+
+### 2. O Cursor de Leitura e Ciclos (Aulas 11 e 12)
+
+-   O Windows usa um "cursor invisível" dentro do ficheiro. Sempre que um **fgets(variável, tamanho, f);** é executado, ele **lê a linha atual e empurra o cursor para o início da linha seguinte**.
+    
+-   Graças a este cursor, podemos enfiar o fgets dentro de um ciclo for para ler várias linhas seguidas de forma organizada, sem misturar os dados.
+
+### 3. Arquitetura de Software: RAM vs Disco (Aula 13)
+
+-   **A Rasteira do Ciclo: O carregamento de ficheiros ("r") deve ser feito apenas uma vez, logo no início do main**. Fazer a leitura dentro de um ciclo de menu (while) faz o programa ler o disco desnecessariamente a cada segundo, gerando lentidão e bugs.
+    
+#### O Fluxo Correto:
+1. O programa arranca e verifica o disco (fopen em modo "r").
+
+2. Se encontrar o ficheiro, puxa os dados para os Arrays (Memória RAM) e **fecha o ficheiro** com **fclose**
+    
+3.  O utilizador mexe no menu, altera os dados na RAM.
+    
+4.  Se o utilizador escolher gravar, o programa abre o ficheiro em modo "w", esvazia o disco, descarrega a RAM para lá e volta a fechar.
+
+</details>
