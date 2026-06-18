@@ -1,0 +1,4 @@
+Stremio
+c:\Stremio
+Steam
+C:\Steam
