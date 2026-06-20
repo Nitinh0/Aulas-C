@@ -360,3 +360,55 @@ int main() {
 }
 ```
 </details>
+
+## 🔗 MÓDULO 8: Listas Ligadas / Linked Lists (Aula 20)
+<details>
+
+<summary><b>Como quebrar as limitações de tamanho dos arrays criando correntes infinitas de dados na memória RAM.</b></summary>
+
+### 1. O Problema dos Arrays vs A Solução das Listas
+Os arrays exigem blocos contínuos de memória. Se não houver espaço todo junto, o programa falha. Nas **Listas Ligadas**, cada elemento (chamado **Nó** ou *Node*) pode estar espalhado por qualquer parte da RAM, pois cada um guarda a morada do elemento seguinte.
+
+### 2. A Estrutura Auto-Referenciada
+Para criar um Nó, adicionamos um ponteiro dentro da própria `struct` que aponta para outra `struct` do mesmo tipo.
+
+```c
+struct JogoNode {
+    char nome[50];
+    struct JogoNode *proxima; // O elo da corrente que guarda a morada do próximo jogo
+    };
+```
+
+### 3. A Âncora e a Parede (inicio e NULL)
+
+   `inicio` (Cabeça) -- É um ponteiro crucial que guarda sempre a morada do primeiro elemento. Se perdermos este ponteiro, a lista inteira fica perdida na memória (*Memory Leak*).
+
+   `NULL` -- O último elemento da corrente aponta sempre para `NULL`. É assim que o programa sabe que a lista acabou.
+
+### 4. Navegar na Corrente
+
+Como não existem índices `[i]`, usamos um ponteiro temporário (`atual`) e um ciclo `while` para "saltar" de nó em nó até batermos no `NULL`.
+
+```c
+struct JogoNode *atual = inicio;
+while (atual != NULL) {
+    printf("Jogo: %s\n", atual->nome);
+    atual = atual->proxima; // O ponteiro salta para o próximo vagão
+}
+```
+
+### 5. Destruição Segura (O free em Listas)
+
+Para limpar a memória alocada com `malloc` no fim do programa, não podemos simplesmente apagar o nó atual, senão perdemos a morada do seguinte. Usamos um ponteiro temporário para segurar o próximo elemento antes de apagar o atual:
+```c
+
+atual = inicio; //garantir que começamos do início da lista
+struct JogoNode* proximoTemporario;
+
+while (atual != NULL) {
+    proximoTemporario = atual->proxima; // 1. Segura o próximo
+    free(atual);                        // 2. Apaga o atual em segurança
+    atual = proximoTemporario;          // 3. Salta para o que guardou
+}
+```
+</details>
