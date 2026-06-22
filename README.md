@@ -456,9 +456,7 @@ while (atual != NULL) {
 
 ## ⚙️ MÓDULO 9: Chamadas de Sistema e OS API (Aula 21)
 
-<details>
-
-<summary><b>Como fazer o código C falar diretamente com o Windows para controlar processos externos e criar um Launcher.</b></summary>
+**Como fazer o código C falar diretamente com o Windows para controlar processos externos e criar um Launcher.**
 
 ### 1. A Forma Simples (system)
 
